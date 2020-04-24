@@ -5,7 +5,7 @@ public class PlayerDead : MonoBehaviour {
 
 public GameObject Player;
 public GameObject Ragdoll;
-
+//Dead on touch trigger
 void OnTriggerEnter(Collider other){
  if (other.tag == "DeadZone") {
   Player.SetActive (false);
