@@ -6,6 +6,10 @@ TagManager:
   tags:
   - DeadZone
   - Car
+  - Vault_R
+  - Emery
+  - Vault_C
+  - PoliceShot
   layers:
   - Default
   - TransparentFX
