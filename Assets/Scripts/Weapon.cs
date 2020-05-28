@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour {
 
@@ -11,6 +12,9 @@ public class Weapon : MonoBehaviour {
 	public AudioClip Reload;
 	public GameObject Pistol;	
 	public GameObject FireBall;
+	public Text Ammo;
+	public int Arsenal = 21;
+	public Text UIArsenal;
 
 	void Start(){
 		FireBall. SetActive (false);
@@ -27,7 +31,8 @@ public class Weapon : MonoBehaviour {
 			
 
 		}
-		if (Input.GetKeyDown (KeyCode.R)) {
+		if (Input.GetKeyDown (KeyCode.R)&Arsenal>0&Magaz<7) {
+			Arsenal = Arsenal - (7-Magaz);
 			Magaz = 7;
 			GetComponent<AudioSource> ().PlayOneShot (Reload);
 			Pistol.GetComponent<Animator>(). SetTrigger("Reload");
@@ -36,5 +41,7 @@ public class Weapon : MonoBehaviour {
 		if (Input.GetMouseButtonUp(0)){
 			FireBall.SetActive (false);
 		}
+		Ammo.text="Ammo   : "+Magaz;
+		UIArsenal.text="/ "+Arsenal;
 	}
 }
