@@ -8,10 +8,12 @@ public class Weapon : MonoBehaviour {
 	public int BulletForce = 5000;
 	public int Magaz = 7;
 	public AudioClip Fire;
-	public AudioClip Reload;	
+	public AudioClip Reload;
+	public GameObject Pistol;	
 
 	void Update () {
 		if (Input.GetMouseButtonDown (0) & Magaz > 0) {
+			Pistol.GetComponent<Animator>(). SetTrigger("Shot");
 			Transform BulletInstance = (Transform)Instantiate (bullet, GameObject.Find ("Spawn").transform.position, Quaternion.identity);
 			BulletInstance.GetComponent<Rigidbody> ().AddForce (transform.forward * BulletForce);
 			Magaz = Magaz - 1;
@@ -21,6 +23,7 @@ public class Weapon : MonoBehaviour {
 		}
 		if (Input.GetKeyDown (KeyCode.R)) {
 			Magaz = 7;
+			Pistol.GetComponent<Animator>(). SetTrigger("Reload");
 		
 		}
 	}
